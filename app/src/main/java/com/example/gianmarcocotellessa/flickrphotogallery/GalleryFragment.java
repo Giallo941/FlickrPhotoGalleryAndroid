@@ -64,7 +64,7 @@ public class GalleryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
         mRq = Volley.newRequestQueue(getActivity());
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mRecyclerView = view.findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new GridLayoutManager(getActivity(), COLUMN_NUM);
@@ -125,8 +125,6 @@ public class GalleryFragment extends Fragment {
 
                 }
 
-                System.out.println(items);
-
                 mAdapter.addAll(items);
 
                 mAdapter.notifyDataSetChanged();
@@ -155,7 +153,7 @@ public class GalleryFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        boolean selectionHandled = false;
+        boolean selectionHandled;
 
         switch (item.getItemId()) {
 

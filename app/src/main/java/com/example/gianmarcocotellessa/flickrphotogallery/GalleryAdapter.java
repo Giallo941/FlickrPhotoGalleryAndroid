@@ -30,7 +30,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
             super(itemView);
 
-            mImageView = (ImageView) itemView.findViewById(R.id.gallery_item);
+            mImageView = itemView.findViewById(R.id.gallery_item);
 
         }
     }

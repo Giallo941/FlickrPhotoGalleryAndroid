@@ -26,7 +26,6 @@ public class NetworkClient implements RetrieveItemsInterface {
 
     }
 
-
     @Override
     public void getItems(final OnGetElementsListener listener) {
 
