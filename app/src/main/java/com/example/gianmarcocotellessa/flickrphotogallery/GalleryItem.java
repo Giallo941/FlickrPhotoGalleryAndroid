@@ -1,6 +1,8 @@
 package com.example.gianmarcocotellessa.flickrphotogallery;
 
-public class GalleryItem {
+import java.io.Serializable;
+
+public class GalleryItem implements Serializable {
 
     private String mId;
     private String mSecret;

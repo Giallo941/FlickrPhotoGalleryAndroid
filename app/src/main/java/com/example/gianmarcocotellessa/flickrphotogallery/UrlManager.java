@@ -5,7 +5,7 @@ import android.net.Uri;
 public class UrlManager {
 
     public static final String API_KEY = "51885ef41dff54033e1de374307f110c";
-    public static final String PREF_SEARCH_QUERY ="searchQuery";
+    public static final String PREF_SEARCH_QUERY = "searchQuery";
 
     private static final String ENDPOINT = "https://api.flickr.com/services/rest/";
     private static final String METHOD_GETRECENT = "flickr.photos.getRecent";
@@ -40,5 +40,5 @@ public class UrlManager {
         return url;
 
     }
-    
+
 }
