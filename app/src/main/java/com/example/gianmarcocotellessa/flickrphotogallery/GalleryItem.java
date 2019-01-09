@@ -1,5 +1,7 @@
 package com.example.gianmarcocotellessa.flickrphotogallery;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class GalleryItem implements Serializable {
@@ -10,12 +12,10 @@ public class GalleryItem implements Serializable {
     private String mFarm;
 
     public GalleryItem(String id, String secret, String server, String farm) {
-
         mId = id;
         mSecret = secret;
         mServer = server;
         mFarm = farm;
-
     }
 
     public String getId() {
@@ -23,9 +23,7 @@ public class GalleryItem implements Serializable {
     }
 
     public String getUrl() {
-
         return "http://farm" + mFarm + ".static.flickr.com/" + mServer + "/" + mId + "_" + mSecret + ".jpg";
-
     }
 
 

@@ -23,15 +23,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         public ImageView mImageView;
 
         public ViewHolder(View itemView) {
-
             super(itemView);
-
             mImageView = itemView.findViewById(R.id.gallery_item);
-
         }
     }
 
@@ -45,17 +41,14 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
         final GalleryItem item = mList.get(position);
 
         holder.mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(mContext, PhotoActivity.class);
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);
-
             }
         });
 
@@ -63,7 +56,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
                 .load(item.getUrl())
                 .thumbnail(0.5f)
                 .into(holder.mImageView);
-
     }
 
     @Override

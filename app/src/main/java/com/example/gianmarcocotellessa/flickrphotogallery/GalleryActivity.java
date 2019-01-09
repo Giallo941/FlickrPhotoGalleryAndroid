@@ -31,7 +31,6 @@ public class GalleryActivity extends AppCompatActivity implements GalleryFragmen
     }
 
     private void handleIntent(Intent intent) {
-
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 
             String query = intent.getStringExtra(SearchManager.QUERY);
@@ -53,20 +52,20 @@ public class GalleryActivity extends AppCompatActivity implements GalleryFragmen
 
     @Override
     public List<GalleryItem> loading(String query, int page, RequestQueue rq) {
-
         mNetworkClient = new NetworkClient(query, page, rq);
-
         mNetworkClient.getItems(new RetrieveItemsInterface.OnGetElementsListener() {
             @Override
             public void onReceiveItems(List<GalleryItem> items) {
-
                 mNewItems = items;
-
             }
 
         });
 
         return mNewItems;
 
+    }
+
+    public void onGalleryFragmentLoading(NetworkClient.OnGetElementsListener listener) {
+        mNetworkClient.getItems(listener);
     }
 }

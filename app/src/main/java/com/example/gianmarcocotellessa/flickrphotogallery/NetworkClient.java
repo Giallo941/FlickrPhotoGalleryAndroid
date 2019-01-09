@@ -19,16 +19,13 @@ public class NetworkClient implements RetrieveItemsInterface {
     RequestQueue mRq;
 
     public NetworkClient(String query, int page, RequestQueue rq) {
-
         mQuery = query;
         mPage = page;
         mRq = rq;
-
     }
 
     @Override
     public void getItems(final OnGetElementsListener listener) {
-
         String url = UrlManager.getItemUrl(mQuery, mPage);
 
         JsonObjectRequest request = new JsonObjectRequest(url,
@@ -36,58 +33,40 @@ public class NetworkClient implements RetrieveItemsInterface {
 
                     @Override
                     public void onResponse(JSONObject response) {
-
                         List<GalleryItem> result = new ArrayList<>();
-
                         try {
-
                             JSONObject photos = response.getJSONObject("photos");
-
                             JSONArray photoArr = photos.getJSONArray("photo");
 
                             for (int i = 0; i < 99; i++) {
-
                                 JSONObject itemObj = photoArr.getJSONObject(i);
-
                                 GalleryItem item = new GalleryItem(
-
                                         itemObj.getString("id"),
                                         itemObj.getString("secret"),
                                         itemObj.getString("server"),
                                         itemObj.getString("farm")
-
                                 );
-
                                 result.add(item);
-
                             }
-
                             listener.onReceiveItems(result);
 
                         } catch (JSONException e) {
-
                             e.printStackTrace();
-
                         }
-
                     }
 
                 },
-
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                         listener.onReceiveItems(null);
 
                     }
 
                 }
-
         );
 
         mRq.add(request);
-
     }
 
 }

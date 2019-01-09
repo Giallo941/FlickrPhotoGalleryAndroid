@@ -12,11 +12,9 @@ public class UrlManager {
     private static final String METHOD_SEARCH = "flickr.photos.search";
 
     public static String getItemUrl(String query, int page) {
-
         String url;
 
         if (query != null) {
-
             url = Uri.parse(ENDPOINT).buildUpon()
                     .appendQueryParameter("method", METHOD_SEARCH)
                     .appendQueryParameter("api_key", API_KEY)
@@ -25,9 +23,7 @@ public class UrlManager {
                     .appendQueryParameter("text", query)
                     .appendQueryParameter("page", String.valueOf(page))
                     .build().toString();
-
         } else {
-
             url = Uri.parse(ENDPOINT).buildUpon()
                     .appendQueryParameter("method", METHOD_GETRECENT)
                     .appendQueryParameter("api_key", API_KEY)
@@ -35,7 +31,6 @@ public class UrlManager {
                     .appendQueryParameter("nojsoncallback", "1")
                     .appendQueryParameter("page", String.valueOf(page))
                     .build().toString();
-
         }
         return url;
 
